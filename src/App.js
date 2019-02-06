@@ -77,15 +77,17 @@ class App extends Component {
   }
 
   render() {
+    const { searchTerm, list, users } = this.state;
     return (
       <div className="App">
         <form>
           <input
             type="text"
+            value={searchTerm}
             onChange = {this.onSearchChange}
           />
         </form>
-        {this.state.list.filter(isSearched(this.state.searchTerm)).map(item =>
+        {list.filter(isSearched(searchTerm)).map(item =>
           <div key={item.objectID}>
             <span>
               <a href={item.url}>{item.title} </a>
@@ -102,7 +104,7 @@ class App extends Component {
             </span>
           </div>
         )}
-        {this.state.users.map((user) =>
+        {users.map((user) =>
           <div key={user.objectID}>
             <span>{user.firstName} </span>
             <span>{user.lastName}</span>
