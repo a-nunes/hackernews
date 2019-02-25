@@ -30,6 +30,8 @@ class App extends Component {
   }
 
   needsToSearchTopStories(searchTerm) {
+    console.log(searchTerm);
+    console.log(!this.state.results[searchTerm]);
     return !this.state.results[searchTerm];
   }
 
@@ -74,7 +76,6 @@ class App extends Component {
     if (this.needsToSearchTopStories(searchTerm)) {
       this.fetchSearchTopStories(searchTerm);
     }
-    this.fetchSearchTopStories(searchTerm);
     event.preventDefault();
   }
 
